@@ -184,7 +184,8 @@ class RecogLBPHFaces:
             confidence = self.model.predict(resized)
             cv2.rectangle(frame,(startX,startY),(endX,endY),
                           (0,0,255),2)
-            if confidence[1] < 90:
+            if confidence[1] < 100:
+                cal = '{:.2f}%'.format(confidence[1])
                 person = self.names[confidence[0]]
                 detage = []
                 detgender = []
@@ -196,7 +197,7 @@ class RecogLBPHFaces:
                             detgender = data[2]
                 #cv2.putText(frame, person, (startX,y), cv2.FONT_HERSHEY_SIMPLEX,0.45,(0,0,255),2)
                 cv2.rectangle(frame, (startX, startY), (endX, endY), (0, 255, 0), 3)
-                cv2.putText(frame, 'Info: %s-%s-%s' % (person, detgender, detage), (startX,y),cv2.FONT_HERSHEY_SIMPLEX,0.45,(0,255,0),2)
+                cv2.putText(frame, 'Info: %s-%s-%s-%s' % (person, detgender, detage, cal), (startX,y),cv2.FONT_HERSHEY_SIMPLEX,0.45,(0,255,0),2)
                 print(person, detgender, detage)
             else:
                 person = 'Unknown'
