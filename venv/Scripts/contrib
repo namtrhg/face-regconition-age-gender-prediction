@@ -1,0 +1,10 @@
+#!C:\Users\Nam\PycharmProjects\untitled\venv\Scripts\python.exe
+#
+# Copyright 2013-2019 Lawrence Livermore National Security, LLC and other
+# Spack Project Developers. See the top-level COPYRIGHT file for details.
+#
+# SPDX-License-Identifier: (Apache-2.0 OR MIT)
+
+import contrib.main
+
+contrib.main.main()
